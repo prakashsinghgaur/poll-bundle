@@ -1,0 +1,66 @@
+<?php
+
+namespace PrakashSinghGaur\PollBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Answer
+ *
+ * @ORM\Table(name="answer")
+ * @ORM\Entity(repositoryClass="PrakashSinghGaur\PollBundle\Repository\AnswerRepository")
+ */
+class Answer
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Question", inversedBy="answers")
+     * @ORM\JoinColumn(name="question_id", referencedColumnName="id")
+     */
+    private $question;
+
+    /**
+     * @var bool
+     *
+     * @ORM\Column(name="yes", type="boolean")
+     */
+    private $yes;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="no", type="boolean")
+     */
+    private $no;
+
+    /**
+     * @var string
+     *
+    * @ORM\Column(name="not_sure", type="boolean")
+     */
+    private $notSure;
+
+    /**
+     * @var datetime
+     *
+     * @ORM\Column(name="createdOn", type="datetime")
+     */
+    private $createdOn;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User", inversedBy="answers")
+     * @ORM\JoinColumn(name="createdby", referencedColumnName="id")
+     */
+    private $createdBy;
+
+
+    
+}

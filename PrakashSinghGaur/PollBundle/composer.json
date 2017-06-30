@@ -1,0 +1,21 @@
+{
+    "name": "prakashsinghgaur/poll-bundle",
+    "description": "Opinion Poll Bundle for creating single question (aka Monkey surveys)",
+    "type": "symfony-bundle",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "prakashsingh",
+            "email": "prakashsingh@1601458.no-reply.drupal.org"
+        }
+    ],
+    "minimum-stability": "dev",
+    "autoload":{
+        "psr-0":{"PrakashSinghGaur\\PollBundle":""}
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0.x-dev"
+        }
+    }
+}

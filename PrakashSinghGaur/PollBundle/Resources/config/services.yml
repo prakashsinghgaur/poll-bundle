@@ -1,0 +1,4 @@
+services:
+#    prakash_singh_gaur_poll.example:
+#        class: PrakashSinghGaur\PollBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]

@@ -1,0 +1,80 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.js"></script>
+   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+   <script type="text/javascript">
+     google.charts.load('current', {packages: ['corechart','bar']});     
+   </script>
+   <script language="JavaScript">
+      function drawChart() {
+      var data = new google.visualization.DataTable(JSON.parse('{{ jsonData|raw}}'));
+
+
+      var data2 = google.visualization.arrayToDataTable([
+        ['Options', 'Answers',],
+        ['Yes', 5000],
+        ['No',7000],
+        ['Not Sure', 12000]
+      ]);
+
+
+      var options = {
+        'title':'Opinion Poll Results',
+        
+        legend: {
+          position: 'left',
+          left: 10,
+        }
+        };
+
+       var chart = new google.visualization.BarChart(document.getElementById('container'));
+       chart.draw(data, options);
+}
+
+
+       google.charts.setOnLoadCallback(drawChart);
+
+  </script>
+
+
+
+<div class="row">
+	<div class="col-lg-12">		
+		<ol class="breadcrumb breadcrumb-custom"><b>You are here:</b>
+		  <li>Home</li>
+		  <li class="active">Opinion Poll Results</li>
+		</ol>
+		
+	</div>
+</div>
+<div class="row">
+	<div class="col-lg-4"><h3><b>Opinion Poll Results</b></h3></div>
+	<div class="col-lg-4">
+		<div>
+		
+		</div>
+	</div>
+	<div class="col-lg-4">
+		<ul style="list-style-type:none;" class="pull-right">
+			<li style="display:inline" ><a href="/polls" class="btn btn-default"><i class="fa fa-backward" aria-hidden="true"></i> Back </a>
+			</li>
+			
+		<ul>
+	</div>
+
+</div>
+
+<div class="row">
+	<div class="col-lg-3"></div>
+	<div class="col-lg-6">
+		<h3>{{question.title}}</h3>
+		<h4>{{question.description}}</h4>
+		<b>You have submitted your opinion</b>
+		<div id="container"></div>
+
+
+	</div>
+	<div class="col-lg-3"></div>
+</div>
+{% endblock %}
