@@ -7,7 +7,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Question
- *
+ * This entity will hold questions
  * @ORM\Table(name="question")
  * @ORM\Entity(repositoryClass="PrakashSinghGaur\PollBundle\Repository\QuestionRepository")
  */
